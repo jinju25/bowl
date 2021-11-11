@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+
+
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="thead-dark">
+            <th>번호</th>
+            <th>이름</th>
+            <th>만료일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if locker_list %}
+        {% for locker in locker_list %}
+        <tr>
+            <td>
+                <a href="{% url 'bowl:detail' locker.id %}">{{ locker.subject }}</a>
+            </td>
+            <td>
+                <a href="{% url 'bowl:detail' locker.id %}">{{ locker.name }}</a>
+            </td>
+            <td>{{ locker.expiration_date }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">질문이 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>

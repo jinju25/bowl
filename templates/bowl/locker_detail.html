@@ -1,13 +1,42 @@
-<h1>{{ locker.subject }}</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<div>
-    {{ locker.name }}
-    {{ locker.club }}
-    {{ locker.phone_number }}
-</div>
 
-<div>
-    사용기간
-    {{ locker.effective_date }} 부터
-    {{ locker.expiration_date }} 까지
-</div>
+
+<div class="container my-3">
+    <h2 class="border-bottom py-2">{{ locker.subject }}</h2>
+
+    <div class="card my-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ locker.name }}</h3>
+
+
+            <div class="card">
+                <div class="card-body">
+                  <div> <span class="badge badge-pill badge-dark">클럽</span> </div>
+                     {{ locker.club }}
+                    </div>
+                </div>
+
+            <div class="card">
+                <div class="card-body">
+                  <div> <span class="badge badge-pill badge-dark">전화번호</span> </div>
+                     {{ locker.phone_number }}
+                    </div>
+                </div>
+
+
+            <div class="card">
+                <div class="card-body">
+                  <div>  <span class="badge badge-pill badge-dark">사용기간</span> </div>
+                    <mark> {{ locker.effective_date }} </mark> 부터 <mark>{{ locker.expiration_date }}</mark> 까지
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

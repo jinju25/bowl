@@ -21,3 +21,6 @@ class Locker(models.Model):
 
     def is_past_due(self):
         return date.today() > self.expiration_date
+
+
+

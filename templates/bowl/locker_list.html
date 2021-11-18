@@ -9,6 +9,7 @@
             <th>번호</th>
             <th>이름</th>
             <th>만료일자</th>
+            <th>상태</th>
         </tr>
         </thead>
         <tbody>
@@ -32,7 +33,16 @@
 
             <td>
                 {{ locker.expiration_date }}
+            </td>
 
+            <td>
+                {% if locker.expiration_date == None %}
+                 ⚪ 사용가능
+                {% elif locker.is_past_due %}
+                 🔴 연장필요
+                {% else %}
+                 🔵 사용중
+                {% endif %}
             </td>
 
 

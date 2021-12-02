@@ -42,9 +42,3 @@ def detail(request, locker_id):
     return render(request, 'bowl/locker_detail.html', context)
 
 
-
-
-def locker_extend(request, locker_id):
-    """
-    locker 연장하기
-    """

@@ -13,7 +13,9 @@ class Locker(models.Model):
     effective_date = models.DateField(null= True, blank=True) # 락커 유효일자 (계약이 시작되는 일자)
     expiration_date = models.DateField(null= True, blank=True)    # 락커 만료일자 (계약이 끝나는 일자)
 
-    create_date = models.DateTimeField()  # 수정 일시
+    modify_date = models.DateTimeField(null=True, blank=True)  # 수정 일시
+
+    objects = models.Manager()
 
     def __str__(self):
         return self.subject

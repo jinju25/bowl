@@ -40,3 +40,11 @@ def detail(request, locker_id):
     locker = get_object_or_404(Locker, pk=locker_id)
     context = {'locker': locker}
     return render(request, 'bowl/locker_detail.html', context)
+
+
+
+def locker_extend(request, locker_id):
+    """
+   락커 연장
+    """
+

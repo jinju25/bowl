@@ -32,6 +32,14 @@
                     <mark> {{ locker.effective_date }} </mark> 부터 <mark>{{ locker.expiration_date }}</mark> 까지
 
 
+                    {% if request.user.is_superuser %}
+                    <div class="my-3">
+                        <a href="{% url 'bowl:locker_extend' locker.id  %}"
+                              class="btn btn-sm btn-outline-secondary">연장</a>
+                    </div>
+                    {% endif %}
+
+
 
                     </div>
             </div>

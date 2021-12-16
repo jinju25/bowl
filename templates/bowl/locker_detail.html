@@ -31,44 +31,14 @@
                   <div>  <span class="badge badge-pill badge-dark">사용기간</span> </div>
                     <mark> {{ locker.effective_date }} </mark> 부터 <mark>{{ locker.expiration_date }}</mark> 까지
 
-                    {% if request.user.is_superuser %}
-                    <div class="my-3">
-                       <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
-                            연장
-                        </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">1년 연장 하시겠습니까?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                              S: 5,000원<br>
-                              D: 10,0000원<br>
-                              T: 15,000원
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                             <a href="#" data-uri="{% url 'bowl:locker_extend' locker.id  %}"> <button type="button" class="btn btn-primary"예</button></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    {% endif %}
 
                     </div>
             </div>
 
         </div>
     </div>
-
+</div>
 
 
 

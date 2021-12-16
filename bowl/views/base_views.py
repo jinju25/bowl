@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Locker
+from ..models import Locker
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib import messages
@@ -24,7 +24,7 @@ def index(request):
        ).distinct()
 
     # 페이징처리
-    paginator = Paginator(locker_list, 5)  # 페이지당 1000개씩 보여주기
+    paginator = Paginator(locker_list, 20)  # 페이지당 1000개씩 보여주기
     page_obj = paginator.get_page(page)
 
     context = {'locker_list': page_obj, 'page': page, 'kw': kw}
@@ -40,5 +40,3 @@ def detail(request, locker_id):
     locker = get_object_or_404(Locker, pk=locker_id)
     context = {'locker': locker}
     return render(request, 'bowl/locker_detail.html', context)
-
-

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bowl import views
+from bowl.views import base_views
 
 app_name = 'bowl'
 
@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bowl/', include('bowl.urls')),
     path('common/', include('common.urls')),
-    path('', views.index, name='index'),  # '/' 에 해당되는 path
-    path('<int:locker_id>/', views.detail, name='detail'),
+    path('', base_views.index, name='index'),  # '/' 에 해당되는 path
+    path('<int:locker_id>/', base_views.detail, name='detail'),
 ]

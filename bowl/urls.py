@@ -1,9 +1,9 @@
 from django.urls import path
+from .views import base_views
 
-from .views import
 app_name = 'bowl'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('<int:locker_id>/', views.detail, name='detail'),
+    path('', base_views.index, name='index'),
+    path('<int:locker_id>/', base_views.detail, name='detail'),
 ]

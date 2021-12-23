@@ -5,7 +5,9 @@ from dateutil.relativedelta import *
 from dateutil.easter import *
 from dateutil.rrule import *
 from dateutil.parser import *
-from datetime import *
+from datetime import datetime
+from django.utils import timezone
+
 from ..models import Locker
 from django.db.models import F
 from django.db import models
@@ -18,8 +20,12 @@ def extend_locker(request, locker_id):
     """
     locker = get_object_or_404(Locker, pk=locker_id)
     if request.user.is_superuser:
-        Locker.expiration_date + datetime.timedelta(years=1)
-        Locker.save()
+        #locker.expiration_date = locker.expiration_date(pk=locker_id) + relativedelta(years=1)
+        #locker.expiration_date = locker.expiration_date + relativedelta(years=1)
+        locker.expiration_date = locker.expiration_date + relativedelta(years=1)
+        locker.save()
+
     else:
         messages.error(request, '관리자만 연장할 수 있습니다.')
     return redirect('bowl:detail', locker_id=locker.id)
+

@@ -43,8 +43,3 @@ def detail(request, locker_id):
 
 
 
-def locker_extend(request, locker_id):
-    """
-   락커 연장
-    """
-

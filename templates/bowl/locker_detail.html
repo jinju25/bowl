@@ -35,7 +35,10 @@
                     {% if request.user.is_superuser %}
                     <div class="my-3">
                         <a href="{% url 'bowl:extend_locker' locker.id  %}"
-                              class="extend btn btn-sm btn-outline-secondary">연장</a>
+                              class="extend btn btn-sm btn-outline-secondary"
+                           onclick="return confirm('정말 연장하시겠습니까?');">연장</a>
+                        </a>
+
                     </div>
                     {% endif %}
 
@@ -52,14 +55,5 @@
 
 {% endblock %}
 {% block script %}
-<script type='text/javascript'>
-$(document).ready(function(){
-    $(".extend").on('click', function() {
-        if(confirm("정말로 연장하시겠습니까?")) {
-            location.href = $(this).data('uri');
-        }
-    });
-});
-</script>
 {% endblock %}
 

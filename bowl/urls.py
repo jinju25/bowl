@@ -9,4 +9,5 @@ urlpatterns = [
 
     # extend_views.py
     path('extend/locker/<int:locker_id>/', extend_views.extend_locker, name='extend_locker'),
+
 ]

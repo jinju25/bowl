@@ -23,9 +23,10 @@ def extend_locker(request, locker_id):
         #locker.expiration_date = locker.expiration_date(pk=locker_id) + relativedelta(years=1)
         #locker.expiration_date = locker.expiration_date + relativedelta(years=1)
         locker.expiration_date = locker.expiration_date + relativedelta(years=1)
+        locker.effective_date = locker.effective_date + relativedelta(years=1)
+        locker.modify_date = timezone.now()
         locker.save()
 
     else:
         messages.error(request, '관리자만 연장할 수 있습니다.')
     return redirect('bowl:detail', locker_id=locker.id)
-

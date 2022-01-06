@@ -35,11 +35,33 @@
                     {% if request.user.is_superuser %}
                     <div class="my-3">
                         <a href="{% url 'bowl:extend_locker' locker.id  %}"
-                              class="extend btn btn-sm btn-outline-secondary"
-                           onclick="return confirm('정말 연장하시겠습니까?');">연장</a>
+                           class="extend btn btn-sm btn-outline-secondary"
+                           onclick="return confirm('정말 연장하시겠습니까?');">1년연장</a>
                         </a>
-
                     </div>
+
+                    <div class="my-3">
+                        <a href="{% url 'bowl:extend2_locker' locker.id  %}"
+                           class="extend btn btn-sm btn-outline-secondary"
+                           onclick="return confirm('정말 2년 연장하시겠습니까?');">2년연장</a>
+                        </a>
+                    </div>
+
+                    <div class="my-3">
+                        <a href="{% url 'bowl:extend3_locker' locker.id  %}"
+                           class="extend btn btn-sm btn-outline-secondary"
+                           onclick="return confirm('정말 3년 연장하시겠습니까?');">3년연장</a>
+                        </a>
+                    </div>
+
+                    <div class="my-3">
+                        <a href="{% url 'bowl:delete_locker' locker.id  %}"
+                           class="extend btn btn-sm btn-outline-danger"
+                           onclick="return confirm('락커에 저장된 모든 회원 정보가 삭제됩니다.');">락커 뺌</a>
+                        </a>
+                    </div>
+
+
                     {% endif %}
 
 
